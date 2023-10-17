@@ -1,0 +1,23 @@
+#!/bin/bash
+mkdir belichenko
+cd belichenko
+mkdir vara varb varc
+cd varb
+echo "ke-406 17.10.2023" > yura.txt
+cd ..
+cd varc
+echo "y.belichenko007@gmail.com" > belichenko.txt
+cp belichenko.txt /usr/
+cd ..
+cd varb
+cp yura.txt /usr/
+cd ..
+cd varc
+file_name="belichenko.txt"
+emailpattern="[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,7}"
+if grep -E -q "$emailpattern" "$file_name"; then
+echo "mail address is veryfied"
+else
+echo "mail address is not veryfied"
+fi
+grep " 404 " /var/log/apache2/access.log | wc -l
